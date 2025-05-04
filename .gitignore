@@ -1,1 +1,36 @@
+# IDE / System
+.idea/
+.vscode/
+*.swp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
 .env
+
+# Rust
+target/
+Cargo.lock
+
+# Scala / JVM
+*.class
+*.log
+project/target/
+project/project/
+target/
+
+# Airflow
+logs/
+dags/__pycache__/
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+
+# Jupyter
+.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
