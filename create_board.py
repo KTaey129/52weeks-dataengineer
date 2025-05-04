@@ -64,7 +64,7 @@ def create_issue(week):
     """Create a GitHub issue for the specified week."""
     title = f"Week {week:02d}"
     body = (
-        f"📆 **Week {week} - Toss DE Roadmap**\n\n"
+        f"📆 **Week {week} - Enhancing DE skill Roadmap**\n\n"
         "- [ ] Organize goals\n"
         "- [ ] Checklist of main tasks\n"
         "- [ ] Record deliverables\n\n"
