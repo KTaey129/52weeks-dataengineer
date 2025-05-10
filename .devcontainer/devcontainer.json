@@ -9,22 +9,23 @@
     },
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "version": "latest"
+    },
+    "kubectl-helm-minikube": {
+      "version": "latest",
+      "helm": "latest",
+      "minikube": "latest"
     }
   },
-  "postCreateCommand": "apt-get update && apt-get install -y curl wget build-essential gcc make sbt jq yq && source $HOME/.cargo/env && curl -fsSL https://raw.githubusercontent.com/helm/helm/v3.14.2/scripts/get-helm-3 | bash && rustc --version && java --version && docker --version && helm version",
+  "postCreateCommand": "apt-get update && apt-get install -y curl wget build-essential gcc make conntrack sbt jq yq && source $HOME/.cargo/env",
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-python.python",
         "rust-lang.rust-analyzer",
         "scala-lang.scala",
-        "ms-azuretools.vscode-docker",
+        "redhat.vscode-yaml",
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "grafana.vscode-datasource",
-        "eamodio.gitlens",
-        "esbenp.prettier-vscode",
-        "github.copilot",
-        "github.copilot-chat"
+        "ms-azuretools.vscode-docker"
       ]
     }
   },

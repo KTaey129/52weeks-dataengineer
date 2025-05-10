@@ -1,0 +1,21 @@
+replicaCount: 3
+
+zookeeper:
+  enabled: true
+  replicaCount: 1
+
+metrics:
+  kafka:
+    enabled: true
+  jmx:
+    enabled: true
+
+service:
+  type: ClusterIP
+
+auth:
+  clientProtocol: plaintext
+  interBrokerProtocol: plaintext
+
+persistence:
+  enabled: false
