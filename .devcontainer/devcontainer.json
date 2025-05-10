@@ -1,0 +1,41 @@
+{
+  "name": "enhance-de-devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "stable"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+    "ghcr.io/devcontainers/features/helm:1": {
+      "version": "3.14.2"
+    },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+  },
+
+  "postCreateCommand": "apt-get update && apt-get install -y sbt jq yq",
+
+  "customizations": {
+  "vscode": {
+    "extensions": [
+      "ms-python.python",              // Python
+      "rust-lang.rust-analyzer",       // Rust
+      "scala-lang.scala",              // Scala
+      "ms-azuretools.vscode-docker",   // Docker & Compose
+      "ms-kubernetes-tools.vscode-kubernetes-tools", // K8s
+      "grafana.vscode-datasource",     // Grafana & Prometheus
+      "eamodio.gitlens",               // Git history
+      "esbenp.prettier-vscode",        // JSON/YAML formatting
+      "github.copilot",                // GitHub Copilot
+      "github.copilot-chat"            // Copilot Chat (beta)
+      ]
+    }
+  },
+
+  "forwardPorts": [8080, 3000, 9000, 9092],
+
+  "remoteUser": "vscode"
+}
