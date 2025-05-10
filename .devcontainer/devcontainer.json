@@ -1,41 +1,33 @@
 {
   "name": "enhance-de-devcontainer",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
-
+  "image": "mcr.microsoft.com/devcontainers/rust:1-bullseye",
   "features": {
-    "ghcr.io/devcontainers/features/rust:1": {
-      "version": "stable"
-    },
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "17"
+      "version": "17",
+      "installMaven": false,
+      "installGradle": false
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:1": {},
-    "ghcr.io/devcontainers/features/helm:1": {
-      "version": "3.14.2"
-    },
-    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {}
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "version": "latest"
+    }
   },
-
-  "postCreateCommand": "apt-get update && apt-get install -y sbt jq yq",
-
+  "postCreateCommand": "apt-get update && apt-get install -y curl wget build-essential gcc make sbt jq yq && source $HOME/.cargo/env && curl -fsSL https://raw.githubusercontent.com/helm/helm/v3.14.2/scripts/get-helm-3 | bash && rustc --version && java --version && docker --version && helm version",
   "customizations": {
-  "vscode": {
-    "extensions": [
-      "ms-python.python",              // Python
-      "rust-lang.rust-analyzer",       // Rust
-      "scala-lang.scala",              // Scala
-      "ms-azuretools.vscode-docker",   // Docker & Compose
-      "ms-kubernetes-tools.vscode-kubernetes-tools", // K8s
-      "grafana.vscode-datasource",     // Grafana & Prometheus
-      "eamodio.gitlens",               // Git history
-      "esbenp.prettier-vscode",        // JSON/YAML formatting
-      "github.copilot",                // GitHub Copilot
-      "github.copilot-chat"            // Copilot Chat (beta)
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "rust-lang.rust-analyzer",
+        "scala-lang.scala",
+        "ms-azuretools.vscode-docker",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "grafana.vscode-datasource",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "github.copilot",
+        "github.copilot-chat"
       ]
     }
   },
-
   "forwardPorts": [8080, 3000, 9000, 9092],
-
   "remoteUser": "vscode"
 }
