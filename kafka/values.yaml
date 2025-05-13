@@ -4,18 +4,18 @@ zookeeper:
   enabled: true
   replicaCount: 1
 
+externalZookeeper:
+  enabled: false
+
+auth:
+  clientProtocol: plaintext
+  interBrokerProtocol: plaintext
+
 metrics:
   kafka:
     enabled: true
   jmx:
     enabled: true
-
-service:
-  type: ClusterIP
-
-auth:
-  clientProtocol: plaintext
-  interBrokerProtocol: plaintext
 
 persistence:
   enabled: false
